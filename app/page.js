@@ -1,5 +1,5 @@
-import TextForm from "@/components/Form";
-import getLang, {convertCode} from '@/app/actions';
+import TextForm from "@/components/Form"
+import getLang, {convertCode} from '@/app/actions'
 
 export default function Home() {
   return (
@@ -8,5 +8,5 @@ export default function Home() {
           <TextForm getLang={getLang} convertCode={convertCode} />
       </div>
     </div>
-  );
+  )
 }

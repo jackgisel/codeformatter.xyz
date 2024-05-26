@@ -1,4 +1,4 @@
-"use client";
+"use client"
 // Inspired by react-hot-toast library
 import * as React from "react"
 
@@ -16,7 +16,7 @@ let count = 0
 
 function genId() {
   count = (count + 1) % Number.MAX_SAFE_INTEGER
-  return count.toString();
+  return count.toString()
 }
 
 const toastTimeouts = new Map()
@@ -43,14 +43,14 @@ export const reducer = (state, action) => {
       return {
         ...state,
         toasts: [action.toast, ...state.toasts].slice(0, TOAST_LIMIT),
-      };
+      }
 
     case "UPDATE_TOAST":
       return {
         ...state,
         toasts: state.toasts.map((t) =>
           t.id === action.toast.id ? { ...t, ...action.toast } : t),
-      };
+      }
 
     case "DISMISS_TOAST": {
       const { toastId } = action
@@ -74,7 +74,7 @@ export const reducer = (state, action) => {
                 open: false,
               }
             : t),
-      };
+      }
     }
     case "REMOVE_TOAST":
       if (action.toastId === undefined) {
@@ -86,7 +86,7 @@ export const reducer = (state, action) => {
       return {
         ...state,
         toasts: state.toasts.filter((t) => t.id !== action.toastId),
-      };
+      }
   }
 }
 
@@ -142,14 +142,14 @@ function useToast() {
       if (index > -1) {
         listeners.splice(index, 1)
       }
-    };
+    }
   }, [state])
 
   return {
     ...state,
     toast,
     dismiss: (toastId) => dispatch({ type: "DISMISS_TOAST", toastId }),
-  };
+  }
 }
 
 export { useToast, toast }

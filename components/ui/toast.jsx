@@ -1,8 +1,8 @@
-"use client";
+"use client"
 import * as React from "react"
 import { Cross2Icon } from "@radix-ui/react-icons"
 import * as ToastPrimitives from "@radix-ui/react-toast"
-import { cva } from "class-variance-authority";
+import { cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 
@@ -41,7 +41,7 @@ const Toast = React.forwardRef(({ className, variant, ...props }, ref) => {
       ref={ref}
       className={cn(toastVariants({ variant }), className)}
       {...props} />)
-  );
+  )
 })
 Toast.displayName = ToastPrimitives.Root.displayName
 
@@ -83,4 +83,4 @@ const ToastDescription = React.forwardRef(({ className, ...props }, ref) => (
 ))
 ToastDescription.displayName = ToastPrimitives.Description.displayName
 
-export { ToastProvider, ToastViewport, Toast, ToastTitle, ToastDescription, ToastClose, ToastAction };
+export { ToastProvider, ToastViewport, Toast, ToastTitle, ToastDescription, ToastClose, ToastAction }

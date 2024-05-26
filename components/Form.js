@@ -10,13 +10,13 @@ import {useToast} from "@/components/ui/use-toast"
 import ActionDropdown from "@/components/ActionDropdown"
 
 export default function TextForm({ defaultLang = "auto", getLang, convertCode }) {
-    const [value, setValue] = React.useState("console.log('hello world!');");
+    const [value, setValue] = React.useState("console.log('hello world!');")
     const [extensions, setExtensions] = React.useState([])
     const [language, setLanguage] = React.useState(defaultLang)
 
     const { toast } = useToast()
-    const onChange = React.useCallback((val, viewUpdate) => setValue(val), []);
-    const getLangFromText = getLang.bind(null, value);
+    const onChange = React.useCallback((val, viewUpdate) => setValue(val), [])
+    const getLangFromText = getLang.bind(null, value)
     const convertCodeFromInput = (desiredLang) => {
         return convertCode.bind(null, {
             currentLang: language,
@@ -27,27 +27,27 @@ export default function TextForm({ defaultLang = "auto", getLang, convertCode })
 
     const pasteFromClipboard = async () => {
         try {
-            const text = await navigator.clipboard.readText();
-            setValue(text);
+            const text = await navigator.clipboard.readText()
+            setValue(text)
             await getLangFromText(text)
                 .then(res => setLanguage(res.toLowerCase()))
-                .catch(err => console.log(err));
+                .catch(err => console.log(err))
         } catch (err) {
-            console.error('Failed to read clipboard contents: ', err);
+            console.error('Failed to read clipboard contents: ', err)
         }
-    };
+    }
 
     const copyToClipboard = async () => {
         try {
-            await navigator.clipboard.writeText(value);
+            await navigator.clipboard.writeText(value)
             toast({
                 title: "Copied!",
                 description: "Code snippet was copied.",
             })
         } catch (err) {
-            console.error(err);
+            console.error(err)
         }
-    };
+    }
 
     React.useEffect(() => {
         if (language === "python") {
@@ -56,6 +56,13 @@ export default function TextForm({ defaultLang = "auto", getLang, convertCode })
             setExtensions([javascript({ jsx: true })])
         }
     }, [language])
+
+    const handleConvertCode = React.useCallback(async (lang) => {
+        setLanguage(lang)
+        const convertedCode = await convertCodeFromInput(lang)
+        console.log(convertedCode)
+        setValue(convertedCode)
+    }, [convertCodeFromInput])
 
     return (
         <div className="grid w-full gap-2">
@@ -68,11 +75,7 @@ export default function TextForm({ defaultLang = "auto", getLang, convertCode })
                     <ActionDropdown
                         handleCopy={copyToClipboard}
                         handlePaste={pasteFromClipboard}
-                        handleConvertCode={async (lang) => {
-                            setLanguage(lang)
-                            const convertedCode = await convertCodeFromInput(lang)
-                            setValue(convertedCode)
-                        }}
+                        handleConvertCode={handleConvertCode}
                         />
                 </div>
             </div>

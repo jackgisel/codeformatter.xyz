@@ -1,17 +1,17 @@
-'use server';
+'use server'
 
-import OpenAI from "openai";
+import OpenAI from "openai"
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
-});
+})
 
 export default async function getLang(text) {
     const prompt = `What coding language is this code? Please only respond with the answer, as least words as possible.
         \`\`\`
         ${text}
         \`\`\`
-        `;
+        `
 
     return await openai.chat.completions.create({
         model: 'gpt-3.5-turbo',
@@ -28,8 +28,8 @@ export async function convertCode(data) {
         \`\`\`
         ${data.codeBlock}
         \`\`\`
-        `;
-
+        `
+    console.log(prompt)
     return await openai.chat.completions.create({
         model: 'gpt-3.5-turbo',
         messages: [{
