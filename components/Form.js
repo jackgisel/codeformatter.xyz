@@ -7,7 +7,6 @@ import { javascript } from '@codemirror/lang-javascript'
 
 import { python } from '@codemirror/lang-python'
 import {useToast} from "@/components/ui/use-toast"
-import ActionDropdown from "@/components/ActionDropdown"
 
 export default function TextForm({ defaultLang = "auto", getLang, convertCode }) {
     const [value, setValue] = React.useState("console.log('hello world!');")
@@ -69,15 +68,6 @@ export default function TextForm({ defaultLang = "auto", getLang, convertCode })
             <div className={"relative"}>
                 <CodeMirror maxWidth={"900px"} value={value} height="200px" extensions={extensions} onChange={onChange}/>
                 <span className={'text-xs opacity-50 px-1 py-0.5 absolute bottom-1 right-0'}>{language}</span>
-            </div>
-            <div className={'flex justify-between'}>
-                <div className="grid grid-cols-2 gap-3">
-                    <ActionDropdown
-                        handleCopy={copyToClipboard}
-                        handlePaste={pasteFromClipboard}
-                        handleConvertCode={handleConvertCode}
-                        />
-                </div>
             </div>
         </div>
     )
