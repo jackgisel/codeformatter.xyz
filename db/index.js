@@ -1,10 +1,11 @@
 import { drizzle } from 'drizzle-orm/libsql'
 import { createClient } from '@libsql/client'
 
-console.log(process.env.DATABASE_URL)
+const url = process.env.DATABASE_URL
+console.log("URL FOR DATABASE_URL: " + url)
 
 const client = createClient({
-    url: process.env.DATABASE_URL,
+    url,
     authToken: process.env.DATABASE_TOKEN,
 })
 

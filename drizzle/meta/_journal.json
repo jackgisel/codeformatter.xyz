@@ -5,29 +5,8 @@
     {
       "idx": 0,
       "version": "6",
-      "when": 1716873200877,
-      "tag": "0000_lumpy_odin",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "6",
-      "when": 1716874147977,
-      "tag": "0001_natural_paladin",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "6",
-      "when": 1716982841547,
-      "tag": "0002_opposite_nehzno",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "6",
-      "when": 1716982886343,
-      "tag": "0003_gifted_zarek",
+      "when": 1716993177616,
+      "tag": "0000_tense_plazm",
       "breakpoints": true
     }
   ]

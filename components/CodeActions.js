@@ -11,9 +11,9 @@ export default async function CodeActions() {
     const actions = await fetchActions()
     return (
         <div className={"flex w-full justify-center content-center"}>
-            <h1>code actions</h1>
+            <h1>code actions: {actions.length}</h1>
             {actions.map((action) => (
-                <div key={action.id}>{action.title}</div>
+                <div key={action.id}>{action.id}</div>
             ))}
         </div>
     )
