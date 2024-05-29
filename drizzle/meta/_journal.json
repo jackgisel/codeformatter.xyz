@@ -15,6 +15,13 @@
       "when": 1716874147977,
       "tag": "0001_natural_paladin",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1716982841547,
+      "tag": "0002_opposite_nehzno",
+      "breakpoints": true
     }
   ]
 }
