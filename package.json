@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "gen": "bunx drizzle-kit generate",
+    "migrate": "bunx drizzle-kit migrate"
   },
   "dependencies": {
     "@codemirror/lang-javascript": "^6.2.2",
