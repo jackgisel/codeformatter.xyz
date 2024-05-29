@@ -10,7 +10,7 @@ export const actions = sqliteTable("actions", {
     .notNull(),
 })
 
-export const users = sqliteTable("actions", {
+export const users = sqliteTable("users", {
   id: integer("id").primaryKey(),
   name: text("name"),
 })
