@@ -6,7 +6,12 @@ export default function Home() {
     <div className="w-full flex justify-center content-center">
       <div className="w-3/5">
         <h1 className="text-2xl font-bold text-center">Json Formatter</h1>
-        <TextForm getLang={getLang} convertCode={convertCode} />
+        <ul>
+          <h3>langauges</h3>
+          <li>
+            <a href="/json">json</a>
+          </li>
+        </ul>
       </div>
     </div>
   );
